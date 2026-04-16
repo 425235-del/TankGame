@@ -1,45 +1,41 @@
 // Caleb Taylor | Apr 14 2026 | TankGame
 PImage bg;
 Tank tank;
+ArrayList<Obstacle> obstacles = new ArrayList<Obstacle>();
 
 void setup() {
-   size(500,500);
-   bg = loadImage("bg1.png");
-   tank = new Tank();
+  size(500, 500);
+  bg = loadImage("bg1.png");
+  tank = new Tank();
+  obstacles.add(new Obstacle(250, 250));
+  obstacles.add(new Obstacle(40, 444));
+  obstacles.add(new Obstacle(400, 25));
 }
- 
-  
+
+
 void draw() {
   background(127);
   imageMode(CORNER);
-  image(bg,0,0);
+  image(bg, 0, 0);
+
+  for (int i = 0; i < obstacles.size(); i++) {
+    Obstacle obs = obstacles.get(i);
+    obs.display();
+    obs.move();
+  }
+
+
   tank.display();
 }
 
 void keyPressed() {
-  if(keyCode == RIGHT); {
-  tank.move();
-  // if (y<0) {
-  //  y = height;
-  //}
-  //if (y>height) {
-  //  y = 0;
-  //}
-  //if (x<0) {
-  //  x = width;
-  //}
-  //if (x>width) {
-  //  x = 0;
-  //}
-  //if (key == 'w' || key == 'W') {
-  //  y = y - 10;
-  //} else if (key == 's' || key == 'S') {
-  //  y = y + 10;
-  //} else if (key == 'a' || key == 'A') {
-  //  x = x - 10;
-  //} else if (key == 'd' || key == 'D') {
-  //  x = x + 10;
-  //}
+  if (key == 'w') {
+    tank.move('w');
+  } else if (key == 's') {
+    tank.move('s');
+  } else if (key == 'd') {
+    tank.move('d');
+  } else if (key == 'a') {
+    tank.move('a');
   }
 }
- 
