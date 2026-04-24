@@ -24,7 +24,7 @@ void draw() {
   imageMode(CORNER);
   image(bg, 0, 0);
   //Add Timer to distribute obstacles
-  if(obsTimer.isFinished()) {
+  if (obsTimer.isFinished()) {
     obstacles.add(new Obstacle(-100, int(random(height))));
     obsTimer.start();
   }
@@ -34,12 +34,18 @@ void draw() {
     Obstacle obs = obstacles.get(i);
     obs.display();
     obs.move();
+    if (obs.reachedSide()) {
+      obstacles.remove(i);
+    }
   }
   // Displaying projectiles
   for (int i = 0; i < projectiles.size(); i++) {
     Projectile p = projectiles.get(i);
     p.display();
     p.move();
+    if (p.reachedSide()) {
+      projectiles.remove(i);
+    }
   }
   tank.display();
   scorePanel();
