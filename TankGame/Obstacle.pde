@@ -7,7 +7,7 @@ class Obstacle {
   Obstacle(float w, float h) {
     this.w  = w;
     this.h = h;
-    speed = 3;
+    speed = 2;
     health = 10;
     if (int(random(4))==2) {
       idir = 'w';
