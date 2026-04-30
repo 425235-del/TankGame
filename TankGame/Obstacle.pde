@@ -50,6 +50,14 @@ class Obstacle {
       break;
     }
   }
+   boolean intersect(Obstacle obs) {
+    float distance = dist(x, y, obs.x, obs.y);
+    if (distance < 100) {
+      return true;
+    } else {
+      return false;
+    }
+  }
   boolean reachedSide() {
     return x >= width+150 || x <= -150 || y > height + 150 || y < - 150;
   }
