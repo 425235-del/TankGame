@@ -10,7 +10,7 @@ class Tank {
     y = 100;
     w = 100;
     h = 100;
-    speed = 2;
+    speed = 3;
     health = 75;
     iTankW = loadImage("tankW.png");
     iTankA = loadImage("tankA.png");
